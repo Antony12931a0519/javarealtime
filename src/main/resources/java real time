@@ -166,6 +166,9 @@ Map<K,V> ref = new HashMap<K,V>();
 https://github.com/Antony12931a0519/javarealtime.git
 
 
+controller---->service/manager---->dao-->entities----database
+
+
 
 
 
