@@ -1,0 +1,184 @@
+java at least jdk 8(1.8)
+eclipse oxygen or any latest version
+any database
+
+differt layers inthe application.
+
+library manageent system
+
+default package(com.lms.app)-LMSApplication.java
+contoller(com.lms.controller)--contains all the services/endpoints
+friendsController
+groupController
+service(com.lms.service)/manager(com.lms.manager)--contains business logic
+dao/dal(com.lms.dal/dao)--database related logic(C(create)U(update)R(Read)D(Delete) opearions)
+util(com.lms.util)
+models(com.lms.models)pojo classs--plain old java object
+entities(com.lms.entities)--100 tables ---100 entities
+@X--annotations
+
+
+www.facebook.com/friends
+[
+{
+"friendaid":"fdefwe",
+"name":"ewefwee"
+},
+{
+"friendaid":"fdefwe",
+"name":"ewefwee"
+},
+{
+"friendaid":"fdefwe",
+"name":"ewefwee"
+}
+
+]
+
+
+public class Friend{
+
+private int friendId;
+private String name;
+
+getter();
+setter();
+
+
+
+}
+
+www.facebook.com/friends
+www.facebook.com/friends/friendid
+{
+"friendaid":"fdefwe",
+"name":"ewefwee"
+}
+
+controller----->service layer---->dao/dal layer----->entities----->models----databases
+controller<-----service layer<----dao/dal layer<-----entities<-----models----databases
+
+frameworks(restfull web services/spring boot/spring/hibernate/jpa)
+
+databases--h2 
+
+maven--build tool
+pom.xml
+
+<dependencies>
+<dependency>
+
+<dependency>
+<dependencies>
+
+application server
+tomcat/weblogic/apache 2
+
+
+FreindsController(creae the end point here)++add the nedw point here
+FreindsService
+FreindsEnity
+FriendsModel
+FriendsDAO
+
+
+https://start.spring.io/
+
+Group
+com.realtimejava
+Artifact
+facebook
+Name
+demo
+Description
+Demo project for Spring Boot
+Package name
+
+ctrl + shft + r -  for searching the class in the entire project
+
+
+spring boot project
+
+parent project
+child project
+
+ctrl + shft + o -- for importing the packges
+
+ctrl + sft + / --for commenting the code
+
+
+maven
+maven clean--existing . class files will be removed
+maven install--to recompile th code and geneate the .class files
+maven update--when everwe changes the resources
+
+
+.java file---compile---.class file----java run
+
+annotations
+-----------
+@SpringBootApplication--automatic configuration
+
+@RestController
+
+localhost:8080/welcome
+http://localhost:8080/welcome/groups
+http://localhost:8080/welcome/friends
+
+core java--
+
+collections frameworks
+
+Interfaces      Implementation Classes
+List             ArrayList,Stack,Vector,LikedList
+Set               Hashset,LikedHashSet,TreeSet
+Map              HashMap,LikedHashMap,TreeMap
+
+interfaces:
+
+same as classs but we cant create object
+
+
+public interface Demo{
+
+public void add();
+
+}
+
+public void add(){
+}
+
+public void add();
+
+Arrays
+
+int[] numbers={1,2,3,4,56};
+
+for(int i=0;i<numbers.length-1;i++){
+
+}
+
+List ref = new ArrayList<>();
+Set ref = new HashSet<>();
+Map<K,V> ref = new HashMap<K,V>();
+
+
+https://github.com/Antony12931a0519/javarealtime.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
