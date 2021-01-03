@@ -10,11 +10,11 @@ import javax.persistence.Table;
 public class Friends {
 
 	@Id
-	@Column(name = "friend_id")
+//	@Column(name = "friend_id")
 	private int id;
-	@Column(name = "friend_name")
+//	@Column(name = "friend_name")
 	private String name;
-	@Column(name = "address")
+//	@Column(name = "address")
 	private String address;
 
 	/**
