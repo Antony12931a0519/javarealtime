@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.realtimejava.friendbook.entities.Friends;
 
 @Repository
-public interface FriendsDAO extends CrudRepository<Friends, Long> {
+public interface FriendsDAO extends CrudRepository<Friends, Integer> {
 
 }

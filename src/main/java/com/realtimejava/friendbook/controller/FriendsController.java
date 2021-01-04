@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,12 @@ public class FriendsController {
 	public Friends createFriends(@RequestBody Friends friends) {
 		Friends friend = friendsManager.createFriends(friends);
 		return friend;
+	}
+
+	@PutMapping("/update/friend")
+	public String updateFriend(@RequestBody Friends friends) {
+		return friendsManager.updateFriend(friends);
+
 	}
 
 }
