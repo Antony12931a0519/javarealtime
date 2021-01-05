@@ -3,11 +3,13 @@ package com.realtimejava.friendbook.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.realtimejava.friendbook.entities.Friends;
@@ -34,6 +36,18 @@ public class FriendsController {
 	@PutMapping("/update/friend")
 	public String updateFriend(@RequestBody Friends friends) {
 		return friendsManager.updateFriend(friends);
+
+	}
+
+	@PostMapping("/delete/friend")
+	public String deleteFriend(@RequestBody Friends friends) {
+		return friendsManager.deleteFriend(friends.getId());
+
+	}
+
+	@RequestMapping(value = "/delete/friendbyid", method = RequestMethod.DELETE)
+	public String deleteFriendById(@RequestBody Friends friends) {
+		return friendsManager.deleteFriend(friends.getId());
 
 	}
 

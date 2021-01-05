@@ -31,13 +31,11 @@ public class FriendsManager {
 
 		if (friends != null && friends.getId() != 0) {
 
-			// select * from friends where id=friends.getId();
+			Optional<Friends> optionalFriend = friendsDAO.findById(friends
+					.getId());
 
-			// select * from friends where id=101;
-			Optional<Friends> optionalFriend = friendsDAO
-					.findById( friends.getId());
-			Friends friend = optionalFriend.get();
-			if (friend != null) {
+			if (optionalFriend != null && optionalFriend.isPresent()) {
+				Friends friend = optionalFriend.get();
 				// null///""
 				if (friends.getName() != null && !friends.getName().isEmpty()) {
 					friend.setName(friends.getName());
@@ -51,12 +49,38 @@ public class FriendsManager {
 				if (updatedFriend != null)
 					return "FriendDetals updated successsfully";
 
+			} else {
+				return "FriendDetals not updated successsfully";
 			}
 
 		}
-
-		return "FriendDetals not updated successsfully";
+		return null;
 
 	}
 
+	public String deleteFriend(int friendId) {
+
+		if (friendId != 0) {
+
+			Optional<Friends> optionalFriend = friendsDAO.findById(friendId);
+
+			if (optionalFriend != null && optionalFriend.isPresent()) {
+				Friends friend = optionalFriend.get();
+
+				if (friend != null) {
+
+					friendsDAO.delete(friend);
+					return "FriendDetals deleted successfully";
+				}
+
+			} else {
+				return "FriendDetals are  not available";
+			}
+
+		} else {
+			return "FriendDetals are  not available";
+		}
+		return null;
+
+	}
 }
