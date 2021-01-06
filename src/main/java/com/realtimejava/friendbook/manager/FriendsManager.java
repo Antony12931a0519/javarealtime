@@ -58,6 +58,67 @@ public class FriendsManager {
 
 	}
 
+	public String updateFriendByPathParam(int friendId, Friends friends) {
+
+		if (friends != null && friendId != 0) {
+
+			Optional<Friends> optionalFriend = friendsDAO.findById(friendId);
+
+			if (optionalFriend != null && optionalFriend.isPresent()) {
+				Friends friend = optionalFriend.get();
+				// null///""
+				if (friends.getName() != null && !friends.getName().isEmpty()) {
+					friend.setName(friends.getName());
+				}
+				if (friends.getAddress() != null
+						&& !friends.getAddress().isEmpty()) {
+					friend.setAddress(friends.getAddress());
+				}
+				// friendsDAO.save(friends);
+				Friends updatedFriend = friendsDAO.save(friend);
+				if (updatedFriend != null)
+					return "FriendDetals updated successsfully";
+
+			} else {
+				return "FriendDetals not updated successsfully";
+			}
+
+		}
+		return null;
+
+	}
+	
+	public String updateFriendDetailsByPathParam(int friendId, String address) {
+
+		if (address != null && friendId != 0) {
+
+			Optional<Friends> optionalFriend = friendsDAO.findById(friendId);
+
+			if (optionalFriend != null && optionalFriend.isPresent()) {
+				Friends friend = optionalFriend.get();
+				// null///""
+				/*
+				 * if (address != null && !address.isEmpty()) {
+				 * friend.setName(friends.getName()); }
+				 */
+				if (address != null && !address.isEmpty()) {
+					friend.setAddress(address);
+				}
+				// friendsDAO.save(friends);
+				Friends updatedFriend = friendsDAO.save(friend);
+				if (updatedFriend != null)
+					return "FriendDetals updated successsfully";
+
+			} else {
+				return "FriendDetals not updated successsfully";
+			}
+
+		}
+		return null;
+
+	}
+
+
 	public String deleteFriend(int friendId) {
 
 		if (friendId != 0) {

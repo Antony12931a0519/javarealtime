@@ -3,8 +3,8 @@ package com.realtimejava.friendbook.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +36,21 @@ public class FriendsController {
 	@PutMapping("/update/friend")
 	public String updateFriend(@RequestBody Friends friends) {
 		return friendsManager.updateFriend(friends);
+
+	}
+
+	@PutMapping("/update/friend/{friendId}")
+	public String updateFriendUsingPathParam(
+			@PathVariable("friendId") int friendId, @RequestBody Friends friends) {
+		return friendsManager.updateFriendByPathParam(friendId, friends);
+
+	}
+
+	@PutMapping("/update/friend/{friendId}/{address}")
+	public String updateFriendDetailsUsingPathParam(
+			@PathVariable("friendId") int friendId,
+			@PathVariable("address") String address) {
+		return friendsManager.updateFriendDetailsByPathParam(friendId, address);
 
 	}
 
