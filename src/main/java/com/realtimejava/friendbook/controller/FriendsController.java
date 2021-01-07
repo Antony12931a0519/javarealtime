@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.realtimejava.friendbook.entities.Friends;
 import com.realtimejava.friendbook.manager.FriendsManager;
+import com.realtimejava.friendbook.models.FriendsModel;
 
 @RestController
 @RequestMapping("friendbook")
@@ -22,9 +24,9 @@ public class FriendsController {
 	private FriendsManager friendsManager;
 
 	@GetMapping("/friends")
-	public List<Friends> getFriends() {
-		List<Friends> friends = friendsManager.getFriends();
-		return friends;
+	public List<FriendsModel> getFriends() {
+		return friendsManager.getFriends();
+
 	}
 
 	@PostMapping("/create/friends")
@@ -63,6 +65,16 @@ public class FriendsController {
 	@RequestMapping(value = "/delete/friendbyid", method = RequestMethod.DELETE)
 	public String deleteFriendById(@RequestBody Friends friends) {
 		return friendsManager.deleteFriend(friends.getId());
+
+	}
+
+	@RequestMapping(value = "/delete/friend/queryparam", method = RequestMethod.DELETE)
+	public String deleteFriendByIdUsingQueryParam(
+			@RequestParam("friendId") int friendId,
+			@RequestParam("name") String name) {
+		return friendsManager.deleteFriendUsingQueryParam(friendId);
+
+		// /delete/friend/queryparam?friendId=101
 
 	}
 

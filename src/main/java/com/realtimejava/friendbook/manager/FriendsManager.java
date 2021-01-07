@@ -1,5 +1,6 @@
 package com.realtimejava.friendbook.manager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import com.realtimejava.friendbook.dao.FriendsDAO;
 import com.realtimejava.friendbook.entities.Friends;
+import com.realtimejava.friendbook.entities.Groups;
+import com.realtimejava.friendbook.models.FriendsModel;
 
 @Component
 public class FriendsManager {
@@ -15,10 +18,26 @@ public class FriendsManager {
 	@Autowired
 	private FriendsDAO friendsDAO;
 
-	public List<Friends> getFriends() {
+	@Autowired
+	private GroupsManager groupsManager;
 
+	public List<FriendsModel> getFriends() {
+		List<FriendsModel> friendsList = null;
 		List<Friends> friends = (List<Friends>) friendsDAO.findAll();
-		return friends;
+		if (friends != null && friends.size() > 0) {
+			friendsList = new ArrayList<FriendsModel>();
+			for (Friends friend : friends) {
+				FriendsModel friendModel = new FriendsModel();
+				friendModel.setAddress(friend.getAddress());
+				friendModel.setName(friend.getName());
+				Groups group = groupsManager.getGroupById(friend.getGroupId());
+				if (group != null) {
+					friendModel.setGroupName(group.getName());
+				}
+				friendsList.add(friendModel);
+			}
+		}
+		return friendsList;
 
 	}
 
@@ -87,7 +106,7 @@ public class FriendsManager {
 		return null;
 
 	}
-	
+
 	public String updateFriendDetailsByPathParam(int friendId, String address) {
 
 		if (address != null && friendId != 0) {
@@ -118,7 +137,6 @@ public class FriendsManager {
 
 	}
 
-
 	public String deleteFriend(int friendId) {
 
 		if (friendId != 0) {
@@ -142,6 +160,18 @@ public class FriendsManager {
 			return "FriendDetals are  not available";
 		}
 		return null;
+
+	}
+
+	public String deleteFriendUsingQueryParam(int friendId) {
+		if (friendId != 0) {
+			friendsDAO.deleteById(friendId);
+			return "FriendDetals deleted successfully";
+		}
+
+		else {
+			return "FriendDetals are  not available";
+		}
 
 	}
 }

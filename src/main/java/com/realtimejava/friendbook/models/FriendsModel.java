@@ -1,34 +1,28 @@
-package com.realtimejava.friendbook.entities;
+package com.realtimejava.friendbook.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class FriendsModel {
 
-@Entity
-@Table(name = "Friends")
-public class Friends {
-
-	@Id
-//	@Column(name = "friend_id")
 	private int id;
-//	@Column(name = "friend_name")
+
 	private String name;
-//	@Column(name = "address")
+
 	private String address;
-	private int groupId;
+	
+	private String groupName;
 
 	/**
-	 * @return the groupId
+	 * @return the groupName
 	 */
-	public int getGroupId() {
-		return groupId;
+	public String getGroupName() {
+		return groupName;
 	}
 
 	/**
-	 * @param groupId the groupId to set
+	 * @param groupName
+	 *            the groupName to set
 	 */
-	public void setGroupId(int groupId) {
-		this.groupId = groupId;
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
 	}
 
 	/**
