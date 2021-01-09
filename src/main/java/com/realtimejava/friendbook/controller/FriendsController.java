@@ -29,6 +29,13 @@ public class FriendsController {
 
 	}
 
+	@GetMapping("/friends/{groupId}")
+	public List<FriendsModel> getFriendsByGroup(
+			@PathVariable("groupId") int groupId) {
+		return friendsManager.getFriendsByGroupId(groupId);
+
+	}
+
 	@PostMapping("/create/friends")
 	public Friends createFriends(@RequestBody Friends friends) {
 		Friends friend = friendsManager.createFriends(friends);

@@ -266,6 +266,41 @@ query params
 localhost:8080/friendbook/friends/101
 localhost:8080/friendbook/friends?friendId=101&name="uyguhfq"
 
+list of friends
+
+firnds/group/groupid
+
+select
+        friends0_.id as id1_0_,
+        friends0_.address as address2_0_,
+        friends0_.group_id as group_id3_0_,
+        friends0_.name as name4_0_ 
+    from
+        friends friends0_ 
+    where
+        friends0_.group_id=?
+        
+        Restfull web services
+        ---------------------
+        soap web services--xml format
+        rest services--json
+        spring boot
+        
+        @PUT
+        @POST
+        @GET
+        @DELETE
+        
+        --------------------------------
+        @Path("value")
+        @GET
+        @Request(application/json)
+        @Response(application/json)        
+        public String test(){
+        return "Welcoe!";
+        }
+
+
 
 
 

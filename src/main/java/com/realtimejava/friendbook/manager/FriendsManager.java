@@ -41,6 +41,33 @@ public class FriendsManager {
 
 	}
 
+	public List<FriendsModel> getFriendsByGroupId(int groupId) {
+		List<FriendsModel> frindsList = new ArrayList<FriendsModel>();
+		if (groupId != 0) {
+			// retrieve the friends list base on the group id
+			// select * from friends where groupid= groupid
+			List<Friends> friends = friendsDAO.findFriendsByGroupId(groupId);
+			if (friends != null && friends.size() > 0) {
+				
+				for (Friends friend : friends) {
+					FriendsModel friendModel = new FriendsModel();
+					friendModel.setAddress(friend.getAddress());
+					friendModel.setName(friend.getName());
+					Groups group = groupsManager.getGroupById(friend
+							.getGroupId());
+					if (group != null) {
+						friendModel.setGroupName(group.getName());
+					}
+					frindsList.add(friendModel);
+				}
+
+			}
+
+		}
+		return frindsList;
+
+	}
+
 	public Friends createFriends(Friends friends) {
 		Friends friend = friendsDAO.save(friends);
 		return friend;
