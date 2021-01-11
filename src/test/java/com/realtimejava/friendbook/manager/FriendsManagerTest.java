@@ -3,7 +3,6 @@ package com.realtimejava.friendbook.manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -29,7 +28,7 @@ public class FriendsManagerTest {
 	@Test
 	public void getFriendsForSucess() {
 
-		friendsDAO = Mockito.mock(FriendsDAO.class);
+//		friendsDAO = Mockito.mock(FriendsDAO.class);
 
 		List<Friends> friends = new ArrayList<Friends>();
 
