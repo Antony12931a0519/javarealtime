@@ -25,6 +25,14 @@ public class Friends {
 	}
 
 	/**
+	 * 
+	 */
+	public Friends() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @param groupId the groupId to set
 	 */
 	public void setGroupId(int groupId) {
@@ -52,6 +60,22 @@ public class Friends {
 	public String getName() {
 		return name;
 	}
+
+	/**
+	 * @param id
+	 * @param name
+	 * @param address
+	 * @param groupId
+	 */
+	public Friends(int id, String name, String address, int groupId) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.groupId = groupId;
+	}
+	
+	
 
 	/**
 	 * @param name
