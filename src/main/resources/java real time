@@ -401,10 +401,139 @@ deps for junit test cases
       rs.close();
       stmt.close();
       conn.close()
+      
+      friends
+      id name add city mobile
+      
+      select * from table table where column='value';
+      select * from friends where city = 'hyd';
+      select * from friends f where f.city='hyd';
+      
+       select f from friends f where f.city='hyd';
+       
+        select f.name,f.add,f.city from friends f where f.city='hyd';
+        
+        interfaces:
+        ----------
+        sames as classes
+        
+        public class demo{
+        
+        can conain both abstract methods and concrete methods.
+        }
+        
+        concrete methds-methods with implementation--normal method
+        public void showWelcomeMessage(){
+        Sysout("Hello");
+        }
+        abstract method--method without implementation
+        public void showWelcomeMessage();
+       
+        constructor--will not have return type
 		
-		
+		demo ref = new demo();--for initlizationof the varibles if presentin the class at the time eof object creation.
+
+public interface Animal{
+
+public String sounds();
+public int numberOfLegs();
+}
+
+XXXXX---Animal ref = new Animal();
+creation of helper classes for the interfaces.
+
+public abstract  class Dog implements Animal{
+public String sounds();
+public int numberOfLegs(){
+}
+
+}
+
+public class Puppy extends Dog{
+
+}
+------
+public   class Dog implements Animal{
+public String makeSounds(){
+return "bow bow"
+}
+public int getNumberOfLegs(){
+}
+
+}
+
+public   class Cow implements Animal{
+public String makeSounds(){
+return "anandsa sajada"
+}
+public int getNumberOfLegs(){
+}
+
+}
+
+------
+
+RBIBank
+--bank name
+--minbalance
+
+public interfae RBIBank{
+public String bankName();
+public double minBalance();
+public Sting accoutFormact();
+}
+-----------------
+10--Banks
+icici,sbi,hdfc........
+
+numbers of methods in interface ==numbers of methodsin the implementation class with implementation
 
 
+public class SBI implements RBIBank{
+public String bankName(){
+
+}
+public double minBalance(){
+}
+}
+
+public class ICICI implements RBIBank{
+public String bankName(){
+
+}
+public double minBalance(){
+}
+}
+
+
+java 8--interface can have methods with implementation
+
+public interfae RBIBank{
+public String bankName();
+public double minBalance();
+public default Sting accoutFormact(){
+}
+}
+
+
+public class SBI implements RBIBank{
+public String bankName(){
+
+}
+public double minBalance(){
+}
+}
+
+public class ICICI implements RBIBank{
+public String bankName(){
+
+}
+public double minBalance(){
+}
+}
+
+-----------------------
+intrfces
 
 
 
