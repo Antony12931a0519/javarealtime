@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.realtimejava.friendbook.constannts.FriendBookConstants;
 import com.realtimejava.friendbook.dao.FriendsDAO;
 import com.realtimejava.friendbook.entities.Friends;
 import com.realtimejava.friendbook.entities.Groups;
@@ -14,6 +16,11 @@ import com.realtimejava.friendbook.models.FriendsModel;
 
 @Component
 public class FriendsManager {
+	@Value("${application.basesurl}")
+	private String baseUrl;
+	
+	/*@Value("${application.basesurl}")
+	private String baseUrl;*/
 
 	@Autowired
 	private FriendsDAO friendsDAO;
@@ -28,7 +35,8 @@ public class FriendsManager {
 			friendsList = new ArrayList<FriendsModel>();
 			for (Friends friend : friends) {
 				FriendsModel friendModel = new FriendsModel();
-				friendModel.setAddress(friend.getAddress());
+				friendModel.setAddress(friend.getAddress()
+						+ FriendBookConstants.applicatioBaseUrl);
 				friendModel.setName(friend.getName());
 				Groups group = groupsManager.getGroupById(friend.getGroupId());
 				if (group != null) {
@@ -41,6 +49,12 @@ public class FriendsManager {
 
 	}
 
+	public String getBaseUrl() {
+
+		return baseUrl;
+
+	}
+
 	public List<FriendsModel> getFriendsByGroupId(int groupId) {
 		List<FriendsModel> frindsList = new ArrayList<FriendsModel>();
 		if (groupId != 0) {
@@ -48,7 +62,7 @@ public class FriendsManager {
 			// select * from friends where groupid= groupid
 			List<Friends> friends = friendsDAO.findFriendsByGroupId(groupId);
 			if (friends != null && friends.size() > 0) {
-				
+
 				for (Friends friend : friends) {
 					FriendsModel friendModel = new FriendsModel();
 					friendModel.setAddress(friend.getAddress());
