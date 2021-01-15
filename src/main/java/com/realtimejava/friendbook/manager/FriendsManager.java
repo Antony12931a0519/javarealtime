@@ -16,7 +16,7 @@ import com.realtimejava.friendbook.models.FriendsModel;
 
 @Component
 public class FriendsManager {
-	@Value("${application.basesurl}")
+//	@Value("${application.basesurl}")
 	private String baseUrl;
 	
 	/*@Value("${application.basesurl}")
