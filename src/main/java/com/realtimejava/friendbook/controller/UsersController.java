@@ -2,6 +2,7 @@ package com.realtimejava.friendbook.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ public class UsersController {
 	private UsersManager usersManager;
 
 	@PostMapping("getUserDetails")
-	public UserResponse isUserExists(UsersModel usersModel) {
+	public UserResponse isUserExists(@RequestBody UsersModel usersModel) {
 		return usersManager.isUserExists(usersModel);
 
 	}

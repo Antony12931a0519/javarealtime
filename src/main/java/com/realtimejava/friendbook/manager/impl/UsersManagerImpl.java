@@ -1,7 +1,5 @@
 package com.realtimejava.friendbook.manager.impl;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,21 +24,15 @@ public class UsersManagerImpl implements UsersManager {
 				&& !usersModel.getUserId().isEmpty()
 				&& usersModel.getPassword() != null
 				&& !usersModel.getPassword().isEmpty()) {
-			/*user = usersdAO.getUserByUserNameAndPassword(
-					usersModel.getUserId(), usersModel.getPassword());*/
-			Optional<Users> userOptional  = usersdAO.findById(usersModel.getUserId());
-			user = userOptional.get();
-					
-			
+			user = usersdAO.getUserByUserNameAndPassword(
+					usersModel.getUserId(), usersModel.getPassword());
 		}
 		isUserExists = user != null ? true : false;
-		System.out.println("7777777777777777777777777777------"+isUserExists+"$$$$$$$$$$$$$$$$$$$$$$$$$$");
-		if (isUserExists) {
-			userResponse = new UserResponse();
-			userResponse.setResponse("Success");
-			userResponse.setUserExists(isUserExists);
-		} else
-			return userResponse;
+
+		userResponse = new UserResponse();
+		userResponse.setResponse("Success");
+		userResponse.setUserExists(isUserExists);
+
 		return userResponse;
 	}
 
