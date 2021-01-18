@@ -72,7 +72,7 @@ public class UsersManagerImpl implements UsersManager {
 		}
 		
 
-		return null;
+		return friendsConsolidateModel;
 	}
 
 }

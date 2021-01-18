@@ -546,6 +546,42 @@ backend--
 database--
 
 
+{
+    "friends": [
+        {
+            "id": 0,
+            "name": "sdw",
+            "address": "awww.facebook.com",
+            "groupName": null
+        },
+        {
+            "id": 0,
+            "name": "wdqwdw",
+            "address": "sswww.facebook.com",
+            "groupName": null
+        },
+        {
+            "id": 0,
+            "name": "werq",
+            "address": "wefwww.facebook.com",
+            "groupName": null
+        }
+    ],
+    "news": null,
+    "posts": [
+        {
+            "postId": 101,
+            "postName": "new1"
+        },
+        {
+            "postId": 102,
+            "postName": "new2"
+        }
+    ]
+    ,
+}
+
+
 
 
 

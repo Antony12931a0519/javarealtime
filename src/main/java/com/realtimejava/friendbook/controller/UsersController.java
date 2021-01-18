@@ -26,7 +26,7 @@ public class UsersController {
 	
 	@GetMapping("homepage")
 	public FriendsConsolidatedModel getHomepageDetails() {
-		return null;
+		return usersManager.getHomepageDetails();
 
 	}
 
